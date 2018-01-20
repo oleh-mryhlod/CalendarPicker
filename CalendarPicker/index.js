@@ -46,7 +46,11 @@ export default class CalendarPicker extends Component {
   }
 
   componentWillMount() {
-    this.setState({...this.updateScaledStyles(this.props), ...this.updateMonthYear(this.props.initialDate)});
+    this.setState({
+      ...this.updateScaledStyles(this.props),
+      ...this.updateMonthYear(this.props.initialDate),
+      ...this.updateStartDay(this.props.initialDate),
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -91,6 +95,12 @@ export default class CalendarPicker extends Component {
     return {
       currentMonth: parseInt(moment(initialDate).month()),
       currentYear: parseInt(moment(initialDate).year()),
+    };
+  }
+
+  updateStartDay(initialDate = this.props.initialDate) {
+    return {
+      selectedStartDate: initialDate,
     };
   }
 
