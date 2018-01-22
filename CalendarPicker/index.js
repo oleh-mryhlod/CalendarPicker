@@ -100,7 +100,7 @@ export default class CalendarPicker extends Component {
 
   updateStartDay(initialDate = this.props.initialDate) {
     return {
-      selectedStartDate: initialDate,
+      selectedStartDate: moment(initialDate),
     };
   }
 
