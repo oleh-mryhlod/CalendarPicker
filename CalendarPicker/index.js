@@ -65,13 +65,15 @@ export default class CalendarPicker extends Component {
     }
 
     let newMonthYear = {};
+    let newStartDay = {};
     if (!moment(nextProps.initialDate).isSame(this.props.initialDate, 'day')) {
       newMonthYear = this.updateMonthYear(nextProps.initialDate);
+      newStartDay = this.updateStartDay(nextProps.initialDate);
       doStateUpdate = true;
     }
 
     if (doStateUpdate) {
-      this.setState({...newStyles, ...newMonthYear});
+      this.setState({...newStyles, ...newMonthYear, ...newStartDay});
     }
   }
 
